@@ -3,7 +3,6 @@ package com.example.Mini.Amazon.Clone.controller;
 import com.example.Mini.Amazon.Clone.config.JwtUtil;
 import com.example.Mini.Amazon.Clone.dto.requests.UserLoginRequestDTO;
 import com.example.Mini.Amazon.Clone.dto.requests.UserRequestDTO;
-import com.example.Mini.Amazon.Clone.dto.requests.responses.LoginResponseDTO;
 import com.example.Mini.Amazon.Clone.entity.User;
 import com.example.Mini.Amazon.Clone.exception.ResourceNotFoundException;
 import com.example.Mini.Amazon.Clone.repository.UserRepository;

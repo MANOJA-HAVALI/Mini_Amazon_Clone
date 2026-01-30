@@ -34,4 +34,7 @@ public class GlobalExceptionHandler {
         ApiResponse<Map<String, String>> errordetails = new ApiResponse<>("false",errors);
         return new ResponseEntity<>(errordetails, HttpStatus.BAD_REQUEST);
     }
+
+
+
 }

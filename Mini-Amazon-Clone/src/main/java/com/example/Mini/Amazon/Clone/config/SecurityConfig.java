@@ -1,5 +1,7 @@
 package com.example.Mini.Amazon.Clone.config;
 
+import com.example.Mini.Amazon.Clone.exception.RestAccessDeniedHandler;
+import com.example.Mini.Amazon.Clone.exception.RestAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +37,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/users/**").hasAnyRole("ADMIN","USER")
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(new RestAuthenticationEntryPoint())
+                        .accessDeniedHandler(new RestAccessDeniedHandler())
+                );;
 
         return http.build();
     }
